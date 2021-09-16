@@ -1,7 +1,6 @@
 
 // verifica os inputs checks e retorna uma lista com as opções escolhidas.
 function verificaChecks(){
-
     let minusculas = document.getElementById("minusculas");
     let maiusculas = document.getElementById("maiusculas");
     let numeros = document.getElementById("numeros");
@@ -48,6 +47,25 @@ window.addEventListener("submit", function(){
 window.onload = function(){
     let inputRange = document.getElementById("rangeTamanho");
     let inputTamanho = document.getElementById("inputTamanho");
+    let minusculas = document.getElementById("minusculas");
+    let maiusculas = document.getElementById("maiusculas");
+    let numeros = document.getElementById("numeros");
+    let especiais = document.getElementById("especiais");
+
+    minusculas.addEventListener("click",function(){
+        geraSenha();
+    });
+    maiusculas.addEventListener("click",function(){
+        geraSenha();
+    });
+    numeros.addEventListener("click",function(){
+        geraSenha();
+    });
+    especiais.addEventListener("click",function(){
+        geraSenha();
+    });
+    
+
     inputRange.addEventListener("change", function(){
         inputTamanho.value = inputRange.value;
     });
