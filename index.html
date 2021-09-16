@@ -5,20 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
-    <link href="/bootstrap/css/bootstrap-grid.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="/css/estilo.css" rel="stylesheet">
 
     <title>Gerador de Senha</title>
 </head>
 <body>
     <form id="form" method="dialog">
-        <input type="text" id="campoSenha" value="">
-        <input type="submit" id="botao">
-        <div>Tamanho da senha: <input id="inputTamanho" type="text" min="1" max="50" value="12"><input type="range" class="form-range" id="rangeTamanho" min="1" max="50" value="12"></div>
-        <div>Minúsculas: <input class="form-check-input" type="checkbox" id="minusculas" checked></div>
-        <div>Maiúsculas: <input type="checkbox" id="maiusculas" class="form-check-input" checked></div>
-        <div>Numeros: <input type="checkbox" id="numeros" class="form-check-input" checked></div>
-        <div>Caracteres Especiais: <input type="checkbox" id="especiais" class="form-check-input" checked></div>
+        <div id="div-sup">
+            <input type="text" id="campoSenha" value="">
+            <button id="botao"><img src="/img/sync-solid.svg" id="iconeBotao"></button>
+        </divdiv>
+        <div id="div-sub">
+            <div id="div-tamanho">Quantidade de Caracteres da senha: 
+                <input id="inputTamanho" type="text" min="1" max="50" value="12">
+                <input type="range" class="form-range" id="rangeTamanho" min="1" max="50" value="12">
+            </div>
+            <div id="div-checks">
+                <div id="div-check-input"><input class="form-check-input" type="checkbox" id="minusculas" checked> Minúsculas</div>
+                <div id="div-check-input"><input class="form-check-input" type="checkbox" id="maiusculas" checked> Maiúsculas</div>
+                <div id="div-check-input"><input class="form-check-input" type="checkbox" id="numeros" checked> Numeros</div>
+                <div id="div-check-input"><input class="form-check-input" type="checkbox" id="especiais" checked> Caracteres Especiais</div>
+            </div>
+        </div>
+        
         <script src="codigo.js"></script>
     </form>
 </body>

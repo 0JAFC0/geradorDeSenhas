@@ -38,40 +38,36 @@ function geraSenha(){
     campoDeSenha.value = senha;
 };
 
-//main
-window.addEventListener("submit", function(){
-    geraSenha();
-});
-
 //inicializador
 window.onload = function(){
-    let inputRange = document.getElementById("rangeTamanho");
+    let rangeTamanho = document.getElementById("rangeTamanho");
     let inputTamanho = document.getElementById("inputTamanho");
-    let minusculas = document.getElementById("minusculas");
-    let maiusculas = document.getElementById("maiusculas");
-    let numeros = document.getElementById("numeros");
-    let especiais = document.getElementById("especiais");
-
-    minusculas.addEventListener("click",function(){
+    
+    document.getElementById("minusculas").addEventListener("click",function(){
         geraSenha();
     });
-    maiusculas.addEventListener("click",function(){
+    document.getElementById("maiusculas").addEventListener("click",function(){
         geraSenha();
     });
-    numeros.addEventListener("click",function(){
+    document.getElementById("numeros").addEventListener("click",function(){
         geraSenha();
     });
-    especiais.addEventListener("click",function(){
+    document.getElementById("especiais").addEventListener("click",function(){
         geraSenha();
     });
     
+    document.getElementById("botao").addEventListener("click", function(){
+        geraSenha();
+    });
 
-    inputRange.addEventListener("change", function(){
-        inputTamanho.value = inputRange.value;
+    rangeTamanho.addEventListener("change", function(){
+        inputTamanho.value = rangeTamanho.value;
+        geraSenha();
     });
 
     inputTamanho.addEventListener("change", function(){
-        inputRange.value = inputTamanho.value;
+        rangeTamanho.value = inputTamanho.value;
+        geraSenha();
     });
 
     geraSenha();

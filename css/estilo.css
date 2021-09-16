@@ -1,0 +1,94 @@
+
+#div-sup{
+    width: 50vw;
+    height: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 1rem 0rem rgb(187, 187, 187);
+    
+}
+
+#div-sub{
+    width: 50vw;
+    height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    border-radius: 17px;
+    box-shadow: 0rem 0rem 1rem 0rem rgb(187, 187, 187);
+    font-size: 3vh;
+    display: flex;
+}
+
+#iconeBotao{
+    width: 3vw;
+    height: 3vh;
+}
+
+#campoSenha{
+    width: 40vw;
+    height: 10vh;
+    border-radius: 1rem;
+    border-color: transparent;
+}
+
+#campoSenha:focus{
+    border-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#botao{
+    width: 10vw;
+    height: 10vh;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    float: right;
+}
+
+#inputTamanho{
+    width: 5vw;
+    height: 5vh;
+    text-align: center;
+    margin-left: 1rem;
+}
+
+.form-range{
+    width: 15vw;
+    margin-left: 1vw;
+}
+
+.form-range::-webkit-slider-thumb{
+    background: black;
+}
+
+.form-check-input:checked{
+    background-color: black;
+    border-color: gray;
+}
+
+#div-tamanho{
+    width: 25vw;
+    height: 50vh;
+}
+
+#div-checks{
+    width: 25vw;
+    height: 50vh;
+}
+
+div{
+    font-weight: 2vw;
+}
+
+#div-check-input{
+    margin: 1rem;
+    margin-top: 2rem;
+}
+
+#inputTamanho #rangeTamanho{
+    margin-top: 5 rem;
+}
