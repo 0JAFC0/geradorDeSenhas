@@ -1,4 +1,15 @@
 
+function facilDePronunciar(){
+    let numeros = document.getElementById("numeros");
+    let especiais = document.getElementById("especiais");
+
+    numeros.checked = false;
+    especiais.checked = false;
+
+    numeros.setAttribute("disabled", "");
+    especiais.setAttribute("disabled","");
+}
+
 // verifica os inputs checks e retorna uma lista com as opções escolhidas.
 function verificaChecks(){
     let minusculas = document.getElementById("minusculas");
@@ -43,6 +54,11 @@ window.onload = function(){
     let rangeTamanho = document.getElementById("rangeTamanho");
     let inputTamanho = document.getElementById("inputTamanho");
     
+    document.getElementById("facilDePronunciar").addEventListener("change", function(){
+        facilDePronunciar()
+        geraSenha();
+    });
+
     document.getElementById("minusculas").addEventListener("click",function(){
         geraSenha();
     });
