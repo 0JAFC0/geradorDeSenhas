@@ -1,4 +1,29 @@
 
+function todosOsCaracteres(){
+    let minusculas = document.getElementById("minusculas");
+    let maiusculas = document.getElementById("maiusculas");
+    let numeros = document.getElementById("numeros");
+    let especiais = document.getElementById("especiais");
+
+    if(maiusculas.getAttribute("disabled") !== null){
+        maiusculas.removeAttribute("disabled");
+    }
+    if(minusculas.getAttribute("disabled") !== null){
+        maiusculas.removeAttribute("disabled");
+    }
+    if(numeros.getAttribute("disabled") !== null){
+        numeros.removeAttribute("disabled");
+    }
+    if(especiais.getAttribute("disabled") !== null){
+        especiais.removeAttribute("disabled");
+    }
+
+    minusculas.checked = true;
+    maiusculas.checked = true;
+    numeros.checked = true;
+    especiais.checked = true;
+}
+
 function facilDePronunciar(){
     let numeros = document.getElementById("numeros");
     let especiais = document.getElementById("especiais");
@@ -54,6 +79,11 @@ window.onload = function(){
     let rangeTamanho = document.getElementById("rangeTamanho");
     let inputTamanho = document.getElementById("inputTamanho");
     
+    document.getElementById("todosOsCaracteres").addEventListener("change",function(){
+        todosOsCaracteres();
+        geraSenha();
+    });
+
     document.getElementById("facilDePronunciar").addEventListener("change", function(){
         facilDePronunciar()
         geraSenha();
@@ -86,5 +116,6 @@ window.onload = function(){
         geraSenha();
     });
 
+    todosOsCaracteres();
     geraSenha();
 };
