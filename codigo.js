@@ -1,10 +1,5 @@
 
-function todosOsCaracteres(){
-    let minusculas = document.getElementById("minusculas");
-    let maiusculas = document.getElementById("maiusculas");
-    let numeros = document.getElementById("numeros");
-    let especiais = document.getElementById("especiais");
-
+function removeAtributosDisabled(){
     if(maiusculas.getAttribute("disabled") !== null){
         maiusculas.removeAttribute("disabled");
     }
@@ -17,11 +12,24 @@ function todosOsCaracteres(){
     if(especiais.getAttribute("disabled") !== null){
         especiais.removeAttribute("disabled");
     }
+}
+
+function todosOsCaracteres(){
+    let minusculas = document.getElementById("minusculas");
+    let maiusculas = document.getElementById("maiusculas");
+    let numeros = document.getElementById("numeros");
+    let especiais = document.getElementById("especiais");
+
+    removeAtributosDisabled();
 
     minusculas.checked = true;
     maiusculas.checked = true;
     numeros.checked = true;
     especiais.checked = true;
+}
+
+function alteraCampoSenha(senha){
+    document.getElementById("campoSenha").value = senha;
 }
 
 function facilDePronunciar(){
@@ -60,62 +68,97 @@ function verificaChecks(){
 };
 
 // gera a senha com as opções escolhidas.
-function geraSenha(){
-    //variaveis
-    let campoDeSenha = document.getElementById("campoSenha");
+function geraSenha(querRepetidos){
     let tamanho = parseInt(document.getElementById("inputTamanho").value);
     let listas = verificaChecks();
     let senha = "";
 
-    for(let i = 0;i < tamanho;i++){
-        let opcoes = Math.floor(Math.random() * listas.length);
-        senha += listas[opcoes].charAt(Math.floor(Math.random()*listas[opcoes].length));
+    if(querRepetidos === true){
+        for(let i = 0;i < tamanho;i++){
+            let opcoes = Math.floor(Math.random() * listas.length);
+            
+            if(listas[opcoes].length===0 || listas[opcoes] === null || listas[opcoes] === NaN){
+                listas.splice(opcoes,1);
+                console.log(listas);
+            }else{
+                let caractere = listas[opcoes].charAt(Math.floor(Math.random()*listas[opcoes].length));
+                let parte = listas[opcoes].split(caractere);
+                removeAtributosDisabled();
+                listas[opcoes] = parte[0] + parte[1];
+                senha += caractere;
+            }
+        }
+    
+        return senha;
+    }else{
+        for(let i = 0;i < tamanho;i++){
+            let opcoes = Math.floor(Math.random() * listas.length);
+            senha += listas[opcoes].charAt(Math.floor(Math.random()*listas[opcoes].length));
+        }
+    
+        return senha;
     }
-    campoDeSenha.value = senha;
 };
 
 //inicializador
 window.onload = function(){
     let rangeTamanho = document.getElementById("rangeTamanho");
     let inputTamanho = document.getElementById("inputTamanho");
+    let todosOsCar = document.getElementById("todosOsCaracteres");
+    let facilDeP = document.getElementById("facilDePronunciar");
+    let semCaracteresR = document.getElementById("semCaracteresRepetidos");
     
-    document.getElementById("todosOsCaracteres").addEventListener("change",function(){
+    todosOsCar.addEventListener("change",function(){
         todosOsCaracteres();
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
 
-    document.getElementById("facilDePronunciar").addEventListener("change", function(){
+    facilDeP.addEventListener("change", function(){
         facilDePronunciar()
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
+    });
+
+    semCaracteresR.addEventListener("change", function(){
+        alteraCampoSenha(geraSenha(true));
     });
 
     document.getElementById("minusculas").addEventListener("click",function(){
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
     document.getElementById("maiusculas").addEventListener("click",function(){
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
     document.getElementById("numeros").addEventListener("click",function(){
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
     document.getElementById("especiais").addEventListener("click",function(){
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
     
     document.getElementById("botao").addEventListener("click", function(){
-        geraSenha();
+        if(facilDeP.checked === true){
+            facilDePronunciar();
+            alteraCampoSenha(geraSenha(false));
+        }else if(todosOsCar.checked === true){
+            todosOsCaracteres();
+            alteraCampoSenha(geraSenha(false));
+        }else if(semCaracteresR.checked === true){
+            alteraCampoSenha(geraSenha(true));
+        }else{
+            alteraCampoSenha(geraSenha(false));
+        }
     });
 
     rangeTamanho.addEventListener("change", function(){
         inputTamanho.value = rangeTamanho.value;
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
 
     inputTamanho.addEventListener("change", function(){
         rangeTamanho.value = inputTamanho.value;
-        geraSenha();
+        alteraCampoSenha(geraSenha(false));
     });
 
     todosOsCaracteres();
-    geraSenha();
+    alteraCampoSenha(geraSenha(false));
 };
