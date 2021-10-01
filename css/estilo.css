@@ -22,13 +22,8 @@
     display: flex;
 }
 
-#iconeBotao{
-    width: 3vw;
-    height: 3vh;
-}
-
 #campoSenha{
-    width: 40vw;
+    width: 35vw;
     height: 10vh;
     border-radius: 1rem;
     border-color: transparent;
@@ -40,8 +35,27 @@
     outline: none;
 }
 
+#iconeBotao{
+    width: 3vw;
+    height: 4vh;
+}
+
+#iconeCopiar{
+    width: 5vw;
+    height: 6vh;
+}
+
 #botao{
-    width: 10vw;
+    width: 6vw;
+    height: 10vh;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    float: right;
+}
+
+#botaoCopiar{
+    width: 6vw;
     height: 10vh;
     background-color: transparent;
     background-repeat: no-repeat;

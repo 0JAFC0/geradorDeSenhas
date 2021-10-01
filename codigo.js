@@ -149,6 +149,11 @@ window.onload = function(){
         }
     });
 
+    document.getElementById("botaoCopiar").addEventListener("click", function(){
+        document.getElementById("campoSenha").select();
+        document.execCommand("Copy");
+    });
+
     rangeTamanho.addEventListener("change", function(){
         inputTamanho.value = rangeTamanho.value;
         alteraCampoSenha(geraSenha(false));
